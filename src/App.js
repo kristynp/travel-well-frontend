@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 
 class App extends React.Component {
-  
   componentDidMount() {
     this.props.getCurrentUser()
   }
