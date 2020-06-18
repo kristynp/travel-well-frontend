@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 
@@ -10,12 +11,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Login/>
-      </div>
+        //! consider refactoring to a nav bar
+        this.props.currentUser ? <Logout/> : <Login/>
     );
   }
 
 }
 
-export default connect(null, { getCurrentUser })(App);
+// currentUser deconstructed from state
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App);
