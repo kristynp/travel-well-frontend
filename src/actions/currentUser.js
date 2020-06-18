@@ -17,7 +17,7 @@ export const login = credentials => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({username: "demo user 1", password: "password1" }) //! hardcoded mock user
+      body: JSON.stringify(credentials) 
     })
 
   }
