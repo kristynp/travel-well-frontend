@@ -1,8 +1,7 @@
 import React from 'react';
-import Login from './components/Login';
-import Logout from './components/Logout';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
+import NavBar from './components/NavBar'
 
 class App extends React.Component {
   componentDidMount() {
@@ -11,18 +10,14 @@ class App extends React.Component {
 
   render() {
     return (
-        //! consider refactoring to a nav bar
-        this.props.currentUser ? <Logout/> : <Login/>
+      <div>
+        <NavBar/>
+        {/* <MainContainer/>
+        <Footer/> */}
+      </div>
     );
   }
 
 }
 
-// currentUser deconstructed from state
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
-}
-
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);
