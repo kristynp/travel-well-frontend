@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar';
+import MainContainer from './components/MainContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -10,10 +11,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <NavBar/>
-        {/* <MainContainer/>
-        <Footer/> */}
+        <MainContainer/>
+        {/* <Footer/> */}
       </div>
     );
   }
