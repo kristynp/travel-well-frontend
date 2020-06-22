@@ -18,7 +18,6 @@ class App extends React.Component {
       <div className="App">
         <NavBar/>
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/logout' component={Logout}/>
         <Route exact path='/my-destinations' component={MyDestinations}/>
       </div>
     );
