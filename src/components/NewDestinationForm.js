@@ -1,7 +1,10 @@
 import React from 'react';
 
 const NewDestinationForm = ({}) => {
-  const handleChange = () => {}
+  const handleChange = event => {
+    const { name, value } = event.target
+    updateNewDestinationForm(name, value)
+  }
 
   return (
     <form>
