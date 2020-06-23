@@ -1,4 +1,5 @@
 import React from 'react';
+import { updateNewDestinationForm } from '../actions/newDestinationForm';
 
 const NewDestinationForm = ({}) => {
   const handleChange = event => {
