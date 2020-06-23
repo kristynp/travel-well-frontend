@@ -7,9 +7,9 @@ import Logout from './components/Logout';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/MyDestinations';
-import NewDestination from './components/NewDestination';
+import NewDestination from './components/NewDestinationForm';
 import MainContainer from './components/MainContainer';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
   componentDidMount() {
