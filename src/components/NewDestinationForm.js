@@ -1,5 +1,6 @@
 import React from 'react';
 import { updateNewDestinationForm } from '../actions/newDestinationForm';
+import { connect } from 'react-redux';
 
 const NewDestinationForm = ({}) => {
   const handleChange = event => {
@@ -12,14 +13,26 @@ const NewDestinationForm = ({}) => {
       <input 
         name="name"
         onChange={handleChange}
-        value={"name"}
+        placeholder={"name"}
       />
       <input 
         name="notes"
         onChange={handleChange}
-        value={"notes"}
-      />  
+        placeholder={"notes"}
+      /> 
+      <input 
+        type="submit" 
+        value="Create Destination"
+      /> 
     </form>
   )}
 
-export default NewDestinationForm;
+const mapStateToProps = state => {
+  const { name, notes } = state.newDestinationForm 
+  return {
+    name,
+    notes
+  }
+}
+
+export default connect(mapStateToProps, { updateNewDestinationForm })(NewDestinationForm);
