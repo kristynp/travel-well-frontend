@@ -2,8 +2,9 @@ import React from 'react';
 import { updateNewDestinationForm } from '../actions/newDestinationForm';
 import { connect } from 'react-redux';
 
-const NewDestinationForm = ({ name, notes, history }) => {
+const NewDestinationForm = ({ name, notes, history, updateNewDestinationForm }) => {
   const handleChange = event => {
+    console.log("in handle change, name")
     const { name, value } = event.target
     updateNewDestinationForm(name, value)
   }
