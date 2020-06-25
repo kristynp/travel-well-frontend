@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { getMyDestinations } from './myDestinations'
+import { getMyDestinations, clearDestinations } from './myDestinations'
 
 
 //synchronous action creators

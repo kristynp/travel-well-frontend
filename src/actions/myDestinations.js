@@ -7,7 +7,7 @@ export const setMyDestinations = destinations => {
   }
 }
 
-export const clearTrips = () => {
+export const clearDestinations = () => {
   return {
     type: "CLEAR_DESTINATIONS"
   }
