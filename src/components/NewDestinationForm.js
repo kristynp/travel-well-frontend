@@ -17,7 +17,7 @@ const NewDestinationForm = ({ formData, history, updateNewDestinationForm, creat
     createDestination({
       ...formData,
       userId
-    }, histor);
+    }, history);
   }
 
   return (
