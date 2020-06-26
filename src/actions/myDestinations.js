@@ -38,7 +38,15 @@ export const createDestination = destinationData => {
       body: JSON.stringify(sendData)
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(addDestination(resp.data))
+      }
+      // go somewhere else 
+
+    })
     .catch(console.log)
   }
 }
