@@ -8,5 +8,11 @@ export const updateNewDestinationForm = (name, value) => {
   }
 }
 
+export const resetNewDestinationForm = () => {
+  return {
+    type: "RESET_NEW_DESTINATION_FORM"
+  }
+}
+
 
 //asynchronous action creators

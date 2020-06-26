@@ -1,3 +1,5 @@
+import { resetNewDestinationForm } from "./newDestinationForm"
+
 //synchronous actions
 
 export const setMyDestinations = destinations => {
@@ -22,7 +24,7 @@ export const addDestination = destination => {
 
 //asynchronous actions
 
-export const createDestination = destinationData => {
+export const createDestination = (destinationData, history) => {
   return dispatch => {
     const sendData = {
       user_id: destinationData.userId,
@@ -43,9 +45,9 @@ export const createDestination = destinationData => {
         alert(resp.error)
       } else {
         dispatch(addDestination(resp.data))
+        dispatch(resetNewDestinationForm())
       }
-      // go somewhere else 
-
+      history.push(`/trips/${resp.data.id}`)
     })
     .catch(console.log)
   }
@@ -65,7 +67,6 @@ export const getMyDestinations = () => {
       if (response.error) {
         alert(response.error)
       } else {
-        console.log(response.data)
         dispatch(setMyDestinations(response.data))
       }
     })
