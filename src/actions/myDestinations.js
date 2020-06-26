@@ -23,7 +23,16 @@ export const addDestination = trip => {
 //asynchronous actions
 
 export const createDestination = destinationData => {
-  
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/destinations", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {}
+    })
+  }
 }
 
 export const getMyDestinations = () => {
