@@ -13,7 +13,7 @@ export const clearDestinations = () => {
   }
 }
 
-export const addDestination = trip => {
+export const addDestination = destination => {
   return {
     type: "ADD_DESTINATION",
     destination 
@@ -24,14 +24,22 @@ export const addDestination = trip => {
 
 export const createDestination = destinationData => {
   return dispatch => {
+    const sendData = {
+      user_id: destinationData.userId,
+      name: destinationData.name,
+      notes: destinationData.notes
+    }
     return fetch("http://localhost:3000/api/v1/destinations", {
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: {}
+      body: JSON.stringify(sendData)
     })
+    .then(resp => resp.json())
+    .then(console.log)
+    .catch(console.log)
   }
 }
 
