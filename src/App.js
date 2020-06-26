@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/MyDestinations';
 import NewDestinationForm from './components/NewDestinationForm';
+import DestinationCard from './components/DestinationCard';
 import MainContainer from './components/MainContainer';
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -24,11 +25,12 @@ class App extends React.Component {
       <div className="App">
        { loggedIn ? <NavBar/> : null }
         <Switch>
+          <Route exact path='/' render={(props) => loggedIn ? <MyDestinations/> : <Home/>}/>
           <Route exact path='/signup' render={({ history })=><Signup history={history} />}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/' render={(props) => loggedIn ? <MyDestinations/> : <Home/>}/>
           <Route exact path='/destinations' component={MyDestinations}/>
           <Route exact path='/destinations/new' component={NewDestinationForm}/>
+          <Route exact path='/destinations/:id' component={DestinationCard}/>
         </Switch>
       </div>
     );
