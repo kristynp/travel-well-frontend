@@ -4,6 +4,8 @@ export default (state = [], action) => {
       return action.destinations
     case "CLEAR_DESTINATIONS": 
       return []
+    case "ADD_DESTINATION":
+      return state.destinations.concat(action.destination)
     default:
       return state
   }

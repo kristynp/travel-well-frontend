@@ -2,7 +2,9 @@ import React from 'react';
 import { updateNewDestinationForm } from '../actions/newDestinationForm';
 import { connect } from 'react-redux';
 
-const NewDestinationForm = ({ name, notes, history, updateNewDestinationForm }) => {
+const NewDestinationForm = ({ formData, history, updateNewDestinationForm }) => {
+  const { name, notes } = formData 
+
   const handleChange = event => {
     console.log("in handle change, name")
     const { name, value } = event.target
@@ -11,6 +13,7 @@ const NewDestinationForm = ({ name, notes, history, updateNewDestinationForm }) 
 
   const handleSubmit = event => {
     event.preventDefault();
+
   }
 
   return (
@@ -35,10 +38,8 @@ const NewDestinationForm = ({ name, notes, history, updateNewDestinationForm }) 
   )}
 
 const mapStateToProps = state => {
-  const { name, notes } = state.newDestinationForm 
   return {
-    name,
-    notes
+    formData: state.newDestinationForm
   }
 }
 

@@ -13,7 +13,18 @@ export const clearDestinations = () => {
   }
 }
 
+export const addDestination = trip => {
+  return {
+    type: "ADD_DESTINATION",
+    destination 
+  }
+}
+
 //asynchronous actions
+
+export const createDestination = destinationData => {
+  
+}
 
 export const getMyDestinations = () => {
   return dispatch => {
