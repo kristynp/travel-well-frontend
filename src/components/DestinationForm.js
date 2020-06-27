@@ -1,15 +1,15 @@
 import React from 'react';
-import { updateNewDestinationForm } from '../actions/newDestinationForm';
+import { updateDestinationForm } from '../actions/destinationForm';
 import { createDestination } from '../actions/myDestinations';
 
 import { connect } from 'react-redux';
 
-const NewDestinationForm = ({ formData, history, updateNewDestinationForm, createDestination, userId }) => {
+const DestinationForm = ({ formData, history, updateDestinationForm, createDestination, userId }) => {
   const { name, notes } = formData 
 
   const handleChange = event => {
     const { name, value } = event.target
-    updateNewDestinationForm(name, value)
+    updateDestinationForm(name, value)
   }
 
   const handleSubmit = event => {
@@ -44,9 +44,9 @@ const NewDestinationForm = ({ formData, history, updateNewDestinationForm, creat
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : "" 
   return {
-    formData: state.newDestinationForm,
+    formData: state.destinationForm,
     userId 
   }
 }
 
-export default connect(mapStateToProps, { updateNewDestinationForm, createDestination })(NewDestinationForm);
+export default connect(mapStateToProps, { updateDestinationForm, createDestination })(DestinationForm);

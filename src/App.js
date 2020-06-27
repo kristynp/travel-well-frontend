@@ -8,7 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/MyDestinations';
-import NewDestinationForm from './components/NewDestinationForm';
+import DestinationForm from './components/DestinationForm';
 import DestinationCard from './components/DestinationCard';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ class App extends React.Component {
           <Route exact path='/signup' render={({ history })=><Signup history={history} />}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/destinations' component={MyDestinations}/>
-          <Route exact path='/destinations/new' component={NewDestinationForm}/>
+          <Route exact path='/destinations/new' component={DestinationForm}/>
           <Route exact path='/destinations/:id' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
             return <DestinationCard destination={destination} {...props}/>
@@ -38,7 +38,7 @@ class App extends React.Component {
           }/>
           <Route exact path='/destinations/:id/edit' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
-            return <NewTripForm destination={destination} {...props}/>
+            return <DestinationForm destination={destination} {...props}/>
             }
           }/>
         </Switch>

@@ -1,4 +1,4 @@
-import { resetNewDestinationForm } from "./newDestinationForm"
+import { resetDestinationForm } from "./destinationForm"
 
 //synchronous actions
 
@@ -45,7 +45,7 @@ export const createDestination = (destinationData, history) => {
         alert(resp.error)
       } else {
         dispatch(addDestination(resp.data))
-        dispatch(resetNewDestinationForm())
+        dispatch(resetDestinationForm())
       }
       history.push(`/trips/${resp.data.id}`)
     })
