@@ -36,6 +36,11 @@ class App extends React.Component {
             return <DestinationCard destination={destination} {...props}/>
             }
           }/>
+          <Route exact path='/destinations/:id/edit' render={props => {
+            const destination = destinations.find(d => d.id === props.match.params.id)
+            return <NewTripForm destination={destination} {...props}/>
+            }
+          }/>
         </Switch>
       </div>
     );
