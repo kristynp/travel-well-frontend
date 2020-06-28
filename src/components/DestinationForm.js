@@ -2,7 +2,7 @@ import React from 'react';
 import { updateDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 
-const DestinationForm = ({ formData, history, updateDestinationForm, createDestination, userId }) => {
+const DestinationForm = ({ formData, history, updateDestinationForm, userId, handleSubmit }) => {
   const { name, notes } = formData 
 
   const handleChange = event => {
@@ -11,7 +11,9 @@ const DestinationForm = ({ formData, history, updateDestinationForm, createDesti
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={event => {
+      handleSubmit(event, formData, userId, history)
+      }}>
       <input 
         name="name"
         onChange={handleChange}
@@ -39,4 +41,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateDestinationForm, createDestination })(DestinationForm);
+export default connect(mapStateToProps, { updateDestinationForm })(DestinationForm);

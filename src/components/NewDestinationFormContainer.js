@@ -1,18 +1,19 @@
 import React from 'react';
 import { createDestination } from '../actions/myDestinations';
 import { connect } from 'react-redux';
-import { createDestination } from '../actions/myDestinations';
+import DestinationForm from './DestinationForm';
 
-const handleSubmit = event => {
-  event.preventDefault();
-  createDestination({
-    ...formData,
-    userId
-  }, history);
+const NewDestinationFormContainer = ({ history, createDestination }) => {
+  const handleSubmit = (event, formData, userId, history) => {
+    event.preventDefault();
+    console.log('in handleSubmit')
+    createDestination({
+      ...formData,
+      userId
+    }, history);
+  }
+
+  return <DestinationForm history={history} handleSubmit={handleSubmit} />
 }
 
-const NewDestinationFormContainer = ({}) => {
-  <DestinationForm history={history} handleSubmit={handleSubmit} />
-}
-
-export default NewDestinationFormContainer;
+export default connect(null, { createDestination })(NewDestinationFormContainer);
