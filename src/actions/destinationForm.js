@@ -14,5 +14,16 @@ export const resetDestinationForm = () => {
   }
 }
 
+export const setFormDataForEdit = destination => {
+  const destinationFormData = {
+    name: destination.attributes.name,
+    notes: destination.attributes.notes
+  }
+  return {
+    type: "SET_FORM_DATA_FOR_EDIT",
+    destinationFormData
+  }
+}
+
 
 //asynchronous action creators
