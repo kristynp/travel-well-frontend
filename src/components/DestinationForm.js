@@ -2,7 +2,7 @@ import React from 'react';
 import { updateDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 
-const DestinationForm = ({ formData, history, updateDestinationForm, userId, handleSubmit }) => {
+const DestinationForm = ({ formData, history, updateDestinationForm, userId, handleSubmit, editMode }) => {
   const { name, notes } = formData 
 
   const handleChange = event => {
@@ -28,7 +28,7 @@ const DestinationForm = ({ formData, history, updateDestinationForm, userId, han
       /> 
       <input 
         type="submit" 
-        value="Create Destination"
+        value={ editMode ? "Update Destination" : "Add Destination"}
       /> 
     </form>
   )}

@@ -22,7 +22,43 @@ export const addDestination = destination => {
   }
 }
 
+export const updateDestinationSuccess = destination => {
+  return {
+    type: "UPDATE_DESTINATION",
+    destination 
+  }
+}
+
 //asynchronous actions
+
+export const updateDestination = (destinationData, history) => {
+  return dispatch => {
+    const sendData = {
+      user_id: destinationData.userId,
+      name: destinationData.name,
+      notes: destinationData.notes
+    }
+    return fetch(`http://localhost:3000/api/v1/destinations/${destinationData.DestinationId}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sendData)
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(updateDestinationSuccess(resp.data))
+        dispatch(resetDestinationForm())
+      }
+      history.push(`/destinations/${resp.data.id}`)
+    })
+    .catch(console.log)
+  }
+}
 
 export const createDestination = (destinationData, history) => {
   return dispatch => {
@@ -47,7 +83,7 @@ export const createDestination = (destinationData, history) => {
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
       }
-      history.push(`/trips/${resp.data.id}`)
+      history.push(`/destinations/${resp.data.id}`)
     })
     .catch(console.log)
   }

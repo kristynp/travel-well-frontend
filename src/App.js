@@ -33,16 +33,19 @@ class App extends React.Component {
           <Route exact path='/login' component={Login}/>
           <Route exact path='/destinations' component={MyDestinations}/>
           <Route exact path='/destinations/new' component={NewDestinationFormContainer}/>
+
           <Route exact path='/destinations/:id' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
             return <DestinationCard destination={destination} {...props}/>
             }
           }/>
+
           <Route exact path='/destinations/:id/edit' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
             return <EditDestinationFormContainer destination={destination} {...props}/>
             }
           }/>
+          
         </Switch>
       </div>
     );

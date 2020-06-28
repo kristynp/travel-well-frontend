@@ -6,6 +6,9 @@ export default (state = [], action) => {
       return []
     case "ADD_DESTINATION":
       return state.concat(action.destination)
+    case "UPDATE_DESTINATION":
+      console.log('in UPDATE DESTINATION action, action ', action)
+      return state
     default:
       return state
   }

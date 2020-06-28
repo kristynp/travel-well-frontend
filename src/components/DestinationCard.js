@@ -8,7 +8,7 @@ const DestinationCard = ({ destination }) => {
     <div>
       <h2>{destination.attributes.name}</h2>
       <p>Notes: {destination.attributes.notes}</p>
-      <Link to={`/destination/${destination.id}/edit`} >Edit Destination</Link>
+      <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
     </div> : 
     null 
   )
