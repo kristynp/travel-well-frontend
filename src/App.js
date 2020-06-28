@@ -11,6 +11,7 @@ import MyDestinations from './components/MyDestinations';
 import DestinationForm from './components/DestinationForm';
 import DestinationCard from './components/DestinationCard';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import { setFormDataForEdit } from './actions/destinationForm';
 
 
 class App extends React.Component {
@@ -19,8 +20,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { loggedIn, destinations } = this.props
-    console.log('destinations ', destinations)
+    const { loggedIn, destinations, setFormDataForEdit } = this.props
 
     return (
       <div className="App">
@@ -38,6 +38,7 @@ class App extends React.Component {
           }/>
           <Route exact path='/destinations/:id/edit' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
+            destination && setFormDataForEdit(destination)
             return <DestinationForm destination={destination} {...props}/>
             }
           }/>
@@ -56,4 +57,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, setFormDataForEdit })(App));

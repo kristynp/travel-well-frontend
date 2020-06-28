@@ -1,7 +1,5 @@
 import React from 'react';
 import { updateDestinationForm } from '../actions/destinationForm';
-import { createDestination } from '../actions/myDestinations';
-
 import { connect } from 'react-redux';
 
 const DestinationForm = ({ formData, history, updateDestinationForm, createDestination, userId }) => {
@@ -10,14 +8,6 @@ const DestinationForm = ({ formData, history, updateDestinationForm, createDesti
   const handleChange = event => {
     const { name, value } = event.target
     updateDestinationForm(name, value)
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    createDestination({
-      ...formData,
-      userId
-    }, history);
   }
 
   return (
