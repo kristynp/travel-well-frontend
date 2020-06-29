@@ -11,6 +11,11 @@ class EditDestinationFormContainer extends React.Component {
     this.props.destination && this.props.setFormDataForEdit(this.props.destination)
   }
 
+  // updates the form if the user gets to edit page directly from browser url
+  componentDidUpdate(prevProps) {
+    this.props.destination && !prevProps.trip && this.props.setFormDataForEdit(this.props.destination)
+  }
+
   handleSubmit = (formData, userId) => {
     const { updateDestination, destination, history } = this.props
     console.log('in handleSubmit in Edit Container')
