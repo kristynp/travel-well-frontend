@@ -52,7 +52,7 @@ export const deleteDestination = (destinationId, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
-        dispatch(deleteDestinationSuccess(resp.data))
+        dispatch(deleteDestinationSuccess(destinationId))
         history.push('/destinations')
       }
     })

@@ -8,8 +8,8 @@ export default (state = [], action) => {
       return state.concat(action.destination)
     case "UPDATE_DESTINATION":
       return state.map(destination => destination.id === action.destination.id ? action.destination : destination)
-    case "DELETE_DESTINATION_SUCCESS":
-      return state
+    case "DELETE_DESTINATION":
+      return state.filter(destination => destination.id === action.destinationId ? false : true)
     default:
       return state
   }
