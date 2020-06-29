@@ -32,13 +32,16 @@ export const updateDestinationSuccess = destination => {
 //asynchronous actions
 
 export const updateDestination = (destinationData, history) => {
+  console.log('in updateDestination action creator, destinationData',destinationData)
   return dispatch => {
+    //{name: "paradise", notes: "such notes!", destinationId: "1", userId: "1"}
     const sendData = {
       user_id: destinationData.userId,
       name: destinationData.name,
       notes: destinationData.notes
     }
-    return fetch(`http://localhost:3000/api/v1/destinations/${destinationData.DestinationId}`, {
+    console.log(sendData)
+    return fetch(`http://localhost:3000/api/v1/destinations/${destinationData.destinationId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -53,8 +56,8 @@ export const updateDestination = (destinationData, history) => {
       } else {
         dispatch(updateDestinationSuccess(resp.data))
         dispatch(resetDestinationForm())
+        history.push(`/destinations/${resp.data.id}`)
       }
-      history.push(`/destinations/${resp.data.id}`)
     })
     .catch(console.log)
   }
