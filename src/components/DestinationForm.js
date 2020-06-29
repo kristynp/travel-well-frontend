@@ -2,7 +2,7 @@ import React from 'react';
 import { updateDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 
-const DestinationForm = ({ formData, updateDestinationForm, userId, handleSubmit, editMode }) => {
+const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMode }) => {
   const { name, notes } = formData 
 
   const handleChange = event => {
@@ -13,7 +13,7 @@ const DestinationForm = ({ formData, updateDestinationForm, userId, handleSubmit
   return (
     <form onSubmit={event => {
       event.preventDefault();
-      handleSubmit(formData, userId)
+      handleSubmit(formData)
       }}>
       <input 
         name="name"
@@ -38,7 +38,6 @@ const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : "" 
   return {
     formData: state.destinationForm,
-    userId 
   }
 }
 
