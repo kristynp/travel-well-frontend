@@ -35,7 +35,7 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
   )}
 
 const mapStateToProps = state => {
-  const userId = state.currentUser ? state.currentUser.id : "" 
+  //const userId = state.currentUser ? state.currentUser.id : "" 
   return {
     formData: state.destinationForm,
   }

@@ -32,7 +32,7 @@ class EditDestinationFormContainer extends React.Component {
   }
 
   render() {
-    const { history, handleSubmit, deleteDestination, destination } = this.props
+    const { history, deleteDestination, destination } = this.props
     const destinationId = destination ? destination.id : null
     //editMode gives opportunity to have conditional value depending on if it's new or edit in form
     return( 

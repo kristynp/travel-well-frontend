@@ -8,12 +8,10 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/MyDestinations';
-import DestinationForm from './components/DestinationForm';
 import DestinationCard from './components/DestinationCard';
 import NewDestinationFormContainer from './components/NewDestinationFormContainer';
 import EditDestinationFormContainer from './components/EditDestinationFormContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { setFormDataForEdit } from './actions/destinationForm';
 
 
 class App extends React.Component {
@@ -22,7 +20,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { loggedIn, destinations, setFormDataForEdit } = this.props
+    const { loggedIn, destinations } = this.props
 
     return (
       <div className="App">
@@ -61,4 +59,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, setFormDataForEdit })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
