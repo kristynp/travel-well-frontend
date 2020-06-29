@@ -2,7 +2,7 @@ import React from 'react';
 import { updateDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 
-const DestinationForm = ({ formData, history, updateDestinationForm, userId, handleSubmit, editMode }) => {
+const DestinationForm = ({ formData, updateDestinationForm, userId, handleSubmit, editMode }) => {
   const { name, notes } = formData 
 
   const handleChange = event => {
@@ -12,7 +12,8 @@ const DestinationForm = ({ formData, history, updateDestinationForm, userId, han
 
   return (
     <form onSubmit={event => {
-      handleSubmit(event, formData, userId, history)
+      event.preventDefault();
+      handleSubmit(formData, userId)
       }}>
       <input 
         name="name"

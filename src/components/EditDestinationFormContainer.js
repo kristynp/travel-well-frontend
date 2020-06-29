@@ -11,10 +11,9 @@ class EditDestinationFormContainer extends React.Component {
     this.props.destination && this.props.setFormDataForEdit(this.props.destination)
   }
 
-  handleSubmit = (event, formData, userId, history) => {
-    event.preventDefault();
-    const { updateDestination, destination } = this.props
-    console.log('in handleSubmit')
+  handleSubmit = (formData, userId) => {
+    const { updateDestination, destination, history } = this.props
+    console.log('in handleSubmit in Edit Container')
     updateDestination({
       ...formData,
       destinationId: destination.id,
@@ -25,7 +24,7 @@ class EditDestinationFormContainer extends React.Component {
   render() {
     const { history, handleSubmit } = this.props
     //editMode gives opportunity to have conditional value depending on if it's new or edit in form
-    return <DestinationForm editMode history={history} handleSubmit={handleSubmit} />
+    return <DestinationForm editMode handleSubmit={this.handleSubmit} />
   } 
 }
 
