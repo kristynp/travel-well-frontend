@@ -1,7 +1,7 @@
 // class component to take advantage of componentDidMount
 import React from 'react';
 import { updateDestination } from '../actions/myDestinations';
-import { setFormDataForEdit } from '../actions/destinationForm'
+import { setFormDataForEdit, resetDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 import DestinationForm from './DestinationForm';
 
@@ -14,6 +14,11 @@ class EditDestinationFormContainer extends React.Component {
   // updates the form if the user gets to edit page directly from browser url
   componentDidUpdate(prevProps) {
     this.props.destination && !prevProps.trip && this.props.setFormDataForEdit(this.props.destination)
+  }
+
+  // clears form if user moves from edit page to new destination page
+  componentWillUnmount() {
+    this.props.resetDestinationForm()
   }
 
   handleSubmit = (formData, userId) => {
@@ -33,4 +38,4 @@ class EditDestinationFormContainer extends React.Component {
   } 
 }
 
-export default connect(null, { updateDestination, setFormDataForEdit })(EditDestinationFormContainer);
+export default connect(null, { updateDestination, setFormDataForEdit, resetDestinationForm })(EditDestinationFormContainer);
