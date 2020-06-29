@@ -22,6 +22,13 @@ export const addDestination = destination => {
   }
 }
 
+export const deleteDestinationSuccess = destinationId => {
+  return {
+    type: "DELETE_DESTINATION",
+    destinationId 
+  }
+}
+
 export const updateDestinationSuccess = destination => {
   return {
     type: "UPDATE_DESTINATION",
@@ -30,6 +37,28 @@ export const updateDestinationSuccess = destination => {
 }
 
 //asynchronous actions
+
+export const deleteDestination = (destinationId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/destinations/${destinationId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(deleteDestinationSuccess(resp.data))
+        history.push('/destinations')
+      }
+    })
+    .catch(console.log)
+  }
+}
 
 export const updateDestination = (destinationData, history) => {
   return dispatch => {
