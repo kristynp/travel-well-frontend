@@ -1,6 +1,6 @@
 // class component to take advantage of componentDidMount
 import React from 'react';
-import { updateDestination } from '../actions/myDestinations';
+import { updateDestination, deleteDestination } from '../actions/myDestinations';
 import { setFormDataForEdit, resetDestinationForm } from '../actions/destinationForm';
 import { connect } from 'react-redux';
 import DestinationForm from './DestinationForm';
@@ -32,14 +32,15 @@ class EditDestinationFormContainer extends React.Component {
   }
 
   render() {
-    const { history, handleSubmit } = this.props
+    const { history, handleSubmit, deleteDestination, destination } = this.props
+    const destinationId = destination ? destination.id : null
     //editMode gives opportunity to have conditional value depending on if it's new or edit in form
     return( 
       <div>
         <DestinationForm editMode handleSubmit={this.handleSubmit} />
-        <button onClick={this.deleteDestination}>Delete this destination</button>
+        <button onClick={()=>{deleteDestination(destinationId, history)}}>Delete this destination</button>
       </div>
     )} 
 }
 
-export default connect(null, { updateDestination, setFormDataForEdit, resetDestinationForm })(EditDestinationFormContainer);
+export default connect(null, { updateDestination, setFormDataForEdit, resetDestinationForm, deleteDestination })(EditDestinationFormContainer);
