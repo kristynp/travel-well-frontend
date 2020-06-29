@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import DestinationForm from './DestinationForm';
 
 const NewDestinationFormContainer = ({ history, createDestination }) => {
-  const handleSubmit = (event, formData, userId, history) => {
-    event.preventDefault();
+  const handleSubmit = (formData, userId, history) => {
     console.log('in handleSubmit')
     createDestination({
       ...formData,

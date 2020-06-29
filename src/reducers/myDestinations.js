@@ -8,7 +8,7 @@ export default (state = [], action) => {
       return state.concat(action.destination)
     case "UPDATE_DESTINATION":
       console.log('in UPDATE DESTINATION action, action ', action)
-      return state
+      return state.map(destination => destination.id === action.destination.id ? action.destination : destination)
     default:
       return state
   }
