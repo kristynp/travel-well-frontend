@@ -4,6 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom'
 import store from './store'
+//require('dotenv').config();
 
 
 ReactDOM.render(
