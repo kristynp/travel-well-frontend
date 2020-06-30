@@ -1,19 +1,23 @@
 // functional component
 import React from 'react';
 import { connect } from 'react-redux';
-// NavLink gives ability to style links
-import { NavLink } from 'react-router-dom';
 import Logout from './Logout';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const NavBar = ({ currentUser, loggedIn }) => {
   return (
-    <div className='NavBar'>
-      <NavLink to='/destinations'>My Destinations  |  </NavLink>
-      <NavLink to='/destinations/new'>Add Destination  |  </NavLink>
+    <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="/">TravelWell</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="/destinations">My Destinations</Nav.Link>
+      <Nav.Link href="/destinations/new">Add Destination</Nav.Link>
+    </Nav>
       { loggedIn ? <Logout/> : null }
-    </div>
+    </Navbar>
   )
 }
+
 
 const mapStateToProps = ({ currentUser }) => {
   return {
