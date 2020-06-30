@@ -17,6 +17,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
+    // this.props.getGlobalImages
   }
   
   render() {
