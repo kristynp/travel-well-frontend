@@ -6,10 +6,21 @@ import { Link } from 'react-router-dom'
 
 const MyDestinations = props => {
   const destinationCards = props.destinations.length > 0 ? 
-    props.destinations.map(d => (<p key={d.id} ><Link to={`/destinations/${d.id}`}>{d.attributes.name}</Link></p>)) :
-    null
+    props.destinations.map(d => (
+        <p key={d.id} >
+          <Link to={`/destinations/${d.id}`}>{d.attributes.name}
+          </Link>
+        </p>
 
-  return destinationCards
+    )) 
+    : null
+
+  return (
+    <>
+    <h1 className="destinations-title">My Destinations</h1>
+    {destinationCards}
+    </>
+  )
 }
 
 const mapStateToProps = state => {
