@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 const MyDestinations = props => {
   const destinationCards = props.destinations.length > 0 ? 
     props.destinations.map(d => (
-        <p key={d.id} >
+        <div key={d.id} >
           <Link to={`/destinations/${d.id}`}>{d.attributes.name}
           </Link>
-        </p>
+        </div>
 
     )) 
     : null

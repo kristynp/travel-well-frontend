@@ -2,15 +2,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const DestinationCard = ({ destination }) => {
+const DestinationDetails = ({ destination }) => {
   return (
     destination ?
     <div>
       <h2>{destination.attributes.name}</h2>
-      
+      <p>Notes: {destination.attributes.notes}</p>
+      <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
     </div> : 
     null 
   )
 }
 
-export default DestinationCard;
+export default DestinationDetails;
