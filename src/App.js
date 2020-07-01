@@ -9,6 +9,7 @@ import Login from './components/user/Login';
 import Signup from './components/user/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/destinations/MyDestinations';
+import GlobalImages from './components/images/GlobalImages';
 import DestinationCard from './components/destinations/DestinationCard';
 import NewDestinationFormContainer from './components/destinations/NewDestinationFormContainer';
 import EditDestinationFormContainer from './components/destinations/EditDestinationFormContainer';
@@ -27,6 +28,7 @@ class App extends React.Component {
     return (
       <div className="App">
        { loggedIn ? <NavBar/> : null }
+       <GlobalImages/>
         <Switch>
           <Route exact path='/' render={props => loggedIn ? <MyDestinations/> : <Home/>}/>
           <Route exact path='/signup' render={({ history })=><Signup history={history} />}/>
