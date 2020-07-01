@@ -1,7 +1,7 @@
 // functional component
 import React from 'react';
 import { connect } from 'react-redux';
-import Logout from './Logout';
+import Logout from './user/Logout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
@@ -17,7 +17,6 @@ const NavBar = ({ currentUser, loggedIn }) => {
     </Navbar>
   )
 }
-
 
 const mapStateToProps = ({ currentUser }) => {
   return {

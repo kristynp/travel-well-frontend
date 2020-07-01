@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import currentUser from './reducers/currentUser';
-import loginForm from './reducers/loginForm';
-import myDestinations from './reducers/myDestinations';
-import signupForm from './reducers/signupForm';
-import globalImages from './reducers/globalImages';
-import destinationForm from './reducers/destinationForm';
+import currentUser from './reducers/user/currentUser';
+import loginForm from './reducers/user/loginForm';
+import myDestinations from './reducers/destinations/myDestinations';
+import signupForm from './reducers/user/signupForm';
+import globalImages from './reducers/images/globalImages';
+import destinationForm from './reducers/destinations/destinationForm';
 import thunk from 'redux-thunk';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -2,16 +2,16 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { getCurrentUser } from './actions/currentUser';
-import { getGlobalImageData } from './actions/globalImages';
+import { getCurrentUser } from './actions/user/currentUser';
+import { getGlobalImageData } from './actions/images/globalImages';
 import NavBar from './components/NavBar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './components/user/Login';
+import Signup from './components/user/Signup';
 import Home from './components/Home';
-import MyDestinations from './components/MyDestinations';
-import DestinationCard from './components/DestinationCard';
-import NewDestinationFormContainer from './components/NewDestinationFormContainer';
-import EditDestinationFormContainer from './components/EditDestinationFormContainer';
+import MyDestinations from './components/destinations/MyDestinations';
+import DestinationCard from './components/destinations/DestinationCard';
+import NewDestinationFormContainer from './components/destinations/NewDestinationFormContainer';
+import EditDestinationFormContainer from './components/destinations/EditDestinationFormContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 

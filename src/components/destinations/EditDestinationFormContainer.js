@@ -1,9 +1,12 @@
 // class component to take advantage of componentDidMount
 import React from 'react';
-import { updateDestination, deleteDestination } from '../actions/myDestinations';
-import { setFormDataForEdit, resetDestinationForm } from '../actions/destinationForm';
+import { updateDestination, deleteDestination } from '../../actions/destinations/myDestinations';
+import { setFormDataForEdit, resetDestinationForm } from '../../actions/destinations/destinationForm';
 import { connect } from 'react-redux';
 import DestinationForm from './DestinationForm';
+
+// src/components/destinations/EditDestinationFormContainer.js
+// src/actions/destinations/myDestinations.js
 
 class EditDestinationFormContainer extends React.Component {
 

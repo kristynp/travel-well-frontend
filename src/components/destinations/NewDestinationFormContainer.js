@@ -1,5 +1,5 @@
 import React from 'react';
-import { createDestination } from '../actions/myDestinations';
+import { createDestination } from '../../actions/destinations/myDestinations';
 import { connect } from 'react-redux';
 import DestinationForm from './DestinationForm';
 

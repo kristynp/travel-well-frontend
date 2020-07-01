@@ -1,4 +1,4 @@
-import { resetDestinationForm } from "./destinationForm"
+import { resetDestinationForm } from "../destinations/destinationForm"
 
 //synchronous actions
 

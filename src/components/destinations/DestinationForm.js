@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateDestinationForm } from '../actions/destinationForm';
+import { updateDestinationForm } from '../../actions/destinations/destinationForm';
 import { connect } from 'react-redux';
 
 const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMode }) => {

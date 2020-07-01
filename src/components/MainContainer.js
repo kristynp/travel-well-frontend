@@ -1,6 +1,5 @@
 import React from 'react';
-import MyDestinations from './MyDestinations'
-
+import MyDestinations from './destinations/MyDestinations'
 
 const MainContainer = () => {
   return (
