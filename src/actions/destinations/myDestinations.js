@@ -1,4 +1,5 @@
 import { resetDestinationForm } from "../destinations/destinationForm"
+import { getDestinationImages } from "../images/images"
 
 //synchronous actions
 
@@ -109,6 +110,8 @@ export const createDestination = (destinationData, history) => {
       } else {
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
+        console.log(resp)
+        //dispatch(getDestinationImages())
       }
       history.push(`/destinations/${resp.data.id}`)
     })

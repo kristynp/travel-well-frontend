@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/user/currentUser';
-import { getGlobalImageData } from './actions/images/globalImages';
+import { getGlobalImageData } from './actions/images/images';
 import NavBar from './components/NavBar';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';

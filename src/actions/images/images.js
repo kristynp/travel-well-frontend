@@ -9,10 +9,16 @@ export const setGlobalImageData = imageData => {
 
 //asynchronous action creators
 
+export const getDestinationImages = destinationCountry => {
+  return dispatch => {
+    const access_key = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
+    
+  }
+}
+
 export const getGlobalImageData = () => {
   return dispatch => {
     const access_key = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
-    console.log(access_key)
     return fetch("https://api.unsplash.com/search/photos?page=10&query=travel", {
       method: "GET",
       headers: {
