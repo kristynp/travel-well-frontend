@@ -14,7 +14,7 @@ import DestinationCard from './components/destinations/DestinationCard';
 import NewDestinationFormContainer from './components/destinations/NewDestinationFormContainer';
 import EditDestinationFormContainer from './components/destinations/EditDestinationFormContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
-
+import { Jumbotron } from 'react-bootstrap';
 
 class App extends React.Component {
   componentDidMount() {
@@ -28,7 +28,10 @@ class App extends React.Component {
     return (
       <div className="App">
        { loggedIn ? <NavBar/> : null }
-       <GlobalImages/>
+       <Jumbotron fluid className="jumbotron" >
+           <GlobalImages/>
+      </Jumbotron>
+
         <Switch>
           <Route exact path='/' render={props => loggedIn ? <MyDestinations/> : <Home/>}/>
           <Route exact path='/signup' render={({ history })=><Signup history={history} />}/>
