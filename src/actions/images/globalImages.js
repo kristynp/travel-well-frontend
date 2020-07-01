@@ -21,13 +21,8 @@ export const getGlobalImageData = () => {
       }
     })
     .then(resp => resp.json())
-    .then(response => {
-      // if (response.error) {
-      //   alert(response.error)
-      // } else {
-        console.log(response)
-        //dispatch(setGlobalImageData(response.data))
-      // }
+    .then(resp => {
+      dispatch(setGlobalImageData(resp.results))
     })
     .catch(console.log)
   }
