@@ -28,9 +28,9 @@ class App extends React.Component {
     return (
       <div className="App">
        { loggedIn ? <NavBar/> : null }
-       <Jumbotron fluid className="jumbotron" >
-           <GlobalImages/>
-      </Jumbotron>
+        <Jumbotron bg-dark fluid >
+          <GlobalImages/>
+        </Jumbotron>
 
         <Switch>
           <Route exact path='/' render={props => loggedIn ? <MyDestinations/> : <Home/>}/>

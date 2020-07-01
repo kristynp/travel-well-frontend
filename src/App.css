@@ -1,1 +1,25 @@
 
+.jumbotron {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: -55px;
+  margin-bottom: -55;
+  background-color: dimgray !important;
+  border-bottom:1px solid black;
+  height: 350px
+}
+
+.image-card {
+  height: 40vh;
+  flex-grow: 1;
+  background-position: center;
+}
+
+.global-image {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: center;
+}
