@@ -3,7 +3,7 @@ import { updateDestinationForm } from '../../actions/destinations/destinationFor
 import { connect } from 'react-redux';
 
 const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMode }) => {
-  const { name, notes } = formData 
+  const { name, notes, country } = formData 
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -22,6 +22,12 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
         value={name}
       />
       <input 
+        name="country"
+        onChange={handleChange}
+        placeholder={"country"}
+        value={country}
+      /> 
+      <input 
         name="notes"
         onChange={handleChange}
         placeholder={"notes"}
@@ -35,7 +41,6 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
   )}
 
 const mapStateToProps = state => {
-  //const userId = state.currentUser ? state.currentUser.id : "" 
   return {
     formData: state.destinationForm,
   }
