@@ -17,6 +17,7 @@ export const clearDestinations = () => {
 }
 
 export const addDestination = destination => {
+  console.log('addDestination, destination',destination)
   return {
     type: "ADD_DESTINATION",
     destination 
@@ -38,6 +39,40 @@ export const updateDestinationSuccess = destination => {
 }
 
 //asynchronous actions
+
+export const createDestination = (destinationData, history) => {
+  return dispatch => {
+    const sendData = {
+      user_id: destinationData.userId,
+      name: destinationData.name,
+      country: destinationData.country,
+      notes: destinationData.notes
+    }
+    return fetch("http://localhost:3000/api/v1/destinations", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sendData)
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(addDestination(resp.data))
+        dispatch(resetDestinationForm())
+      }
+      history.push(`/destinations/${resp.data.id}`)
+      return resp.data
+    })
+    .then(resp => {
+      dispatch(getDestinationImages(resp.attributes.country))
+    })
+    .catch(console.log)
+  }
+}
 
 export const deleteDestination = (destinationId, history) => {
   return dispatch => {
@@ -83,37 +118,6 @@ export const updateDestination = (destinationData, history) => {
         dispatch(updateDestinationSuccess(resp.data))
         history.push(`/destinations/${resp.data.id}`)
       }
-    })
-    .catch(console.log)
-  }
-}
-
-export const createDestination = (destinationData, history) => {
-  return dispatch => {
-    const sendData = {
-      user_id: destinationData.userId,
-      name: destinationData.name,
-      notes: destinationData.notes
-    }
-    return fetch("http://localhost:3000/api/v1/destinations", {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(sendData)
-    })
-    .then(resp => resp.json())
-    .then(resp => {
-      if (resp.error) {
-        alert(resp.error)
-      } else {
-        dispatch(addDestination(resp.data))
-        dispatch(resetDestinationForm())
-        console.log(resp)
-        //dispatch(getDestinationImages())
-      }
-      history.push(`/destinations/${resp.data.id}`)
     })
     .catch(console.log)
   }
