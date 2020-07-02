@@ -1,5 +1,6 @@
 const initialState = {
   name: "",
+  country: "",
   notes: "",
   cdc_info: {
     vaccinations: "",
