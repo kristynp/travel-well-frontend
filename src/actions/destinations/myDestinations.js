@@ -17,7 +17,6 @@ export const clearDestinations = () => {
 }
 
 export const addDestination = destination => {
-  console.log('addDestination, destination',destination)
   return {
     type: "ADD_DESTINATION",
     destination 
@@ -68,7 +67,7 @@ export const createDestination = (destinationData, history) => {
       return resp.data
     })
     .then(resp => {
-      dispatch(getDestinationImages(resp.attributes.country))
+      dispatch(getDestinationImages(resp.attributes.country, resp.id))
     })
     .catch(console.log)
   }
