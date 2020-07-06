@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <div className="App">
        { loggedIn ? <NavBar/> : null }
-        <Jumbotron bg-dark fluid >
+        <Jumbotron bg='dark' >
           <GlobalImages/>
         </Jumbotron>
 
