@@ -31,8 +31,32 @@ export const getDestinationImages = (destinationCountry, id) => {
     })
     .then(resp => resp.json())
     .then(resp => {
-      console.log('resp', resp) // array of image objects
-      dispatch(setDestinationImageData(resp.results, id))
+      console.log('resp', resp)
+      resp.results.forEach(imageObject => dispatch(createDestinationImage(imageObject, id)))
+      setDestinationImageData(resp.results, id)
+      // resp.results is an array of image objects
+    })
+    .catch(console.log)
+  }
+}
+
+export const createDestinationImage = (imageData, id) => {
+  return dispatch => {
+    const sendData = {
+      destination_id: id,
+      url: imageData.urls.thumb,
+      external_id: imageData.id,
+      description: imageData.description,
+      alt_description: imageData.alt_description
+    }
+    console.log('in createDestinationImage - sendData', sendData)
+    return fetch("http://localhost:3000/api/v1/images", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sendData)
     })
     .catch(console.log)
   }

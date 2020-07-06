@@ -60,14 +60,14 @@ export const createDestination = (destinationData, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
+        dispatch(getDestinationImages(resp.data.attributes.country, resp.data.id)) //retrieve and create images
+        // collect images into object with resp.data
+        console.log('resp.data just before adding destination to state', resp.data)
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
       }
       history.push(`/destinations/${resp.data.id}`)
       return resp.data
-    })
-    .then(resp => {
-      dispatch(getDestinationImages(resp.attributes.country, resp.id))
     })
     .catch(console.log)
   }
