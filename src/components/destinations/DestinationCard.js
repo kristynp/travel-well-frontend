@@ -5,13 +5,14 @@ import { Card } from 'react-bootstrap';
 
 
 const DestinationCard = ({ destination }) => {
+  let cardImage = destination.attributes.images[0] ? <Card.Img variant="top" src={destination.attributes.images[0].url} ></Card.Img> : null
   return (
     destination ?
     <Card style={{ width: '18rem' }} key={destination.id} >
-      <Card.Img variant="top" src="holder.js/100px180" ></Card.Img>
+      {cardImage}
       <Card.Body>
         <Card.Title>{destination.attributes.name}</Card.Title>
-        <Card.Text>Country</Card.Text>
+        <Card.Text>{destination.attributes.country}</Card.Text>
         <Link to={`/destinations/${destination.id}`}>See Details</Link>
       </Card.Body>
     </Card> : 
