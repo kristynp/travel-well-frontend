@@ -1,11 +1,12 @@
 // functional presentational component
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getCountryAdvisories } from '../../actions/advisories/advisories';
 
 class DestinationDetails extends React.Component {
 
   componentDidMount() {
-    
+    getCountryAdvisories(this.props.destination.country)
   }
 
   render () {
