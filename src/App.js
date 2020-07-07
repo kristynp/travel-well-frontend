@@ -10,7 +10,7 @@ import Signup from './components/user/Signup';
 import Home from './components/Home';
 import MyDestinations from './components/destinations/MyDestinations';
 import GlobalImages from './components/images/GlobalImages';
-import DestinationCard from './components/destinations/DestinationCard';
+import DestinationDetails from './components/destinations/DestinationDetails';
 import NewDestinationFormContainer from './components/destinations/NewDestinationFormContainer';
 import EditDestinationFormContainer from './components/destinations/EditDestinationFormContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -38,10 +38,9 @@ class App extends React.Component {
           <Route exact path='/login' component={Login}/>
           <Route exact path='/destinations' component={MyDestinations}/>
           <Route exact path='/destinations/new' component={NewDestinationFormContainer}/>
-
           <Route exact path='/destinations/:id' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
-            return <DestinationCard destination={destination} {...props}/>
+            return <DestinationDetails destination={destination} {...props}/>
             }
           }/>
 
