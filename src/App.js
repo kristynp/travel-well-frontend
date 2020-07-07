@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/user/currentUser';
 import { getGlobalImageData } from './actions/images/images';
+import { getCountryCodes } from './actions/advisories/countryCodeData';
 import NavBar from './components/NavBar';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';
@@ -20,6 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.getGlobalImageData()
+    this.props.getCountryCodes()
   }
   
   render() {
@@ -65,4 +67,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, getGlobalImageData })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, getGlobalImageData, getCountryCodes })(App));
