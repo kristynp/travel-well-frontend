@@ -21,12 +21,12 @@ export const getDestinationImages = (destinationCountry, id) => {
   const countrySlug = destinationCountry.replace(/\s/g , "-").toLowerCase()
   console.log('countrySlug', countrySlug)
   return dispatch => {
-    const access_key = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
+    const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
     return fetch(`https://api.unsplash.com/search/photos?page=6&query=${countrySlug}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Client-ID ${access_key}`
+        "Authorization": `Client-ID ${accessKey}`
       }
     })
     .then(resp => resp.json())
