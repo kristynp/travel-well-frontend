@@ -20,14 +20,14 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
         onChange={handleChange}
         placeholder={"name"}
         value={name}
-      />
+      /><br/><br/>
       <input 
         name="country"
         onChange={handleChange}
         placeholder={"country"}
         value={country}
-      /> 
-      <input 
+      /><br/><br/>
+      <textarea 
         name="notes"
         onChange={handleChange}
         placeholder={"notes"}
