@@ -11,11 +11,12 @@ export const setCountryCodeData = countryCodeData => {
 
 export const getCountryCodes = () => {
   return dispatch => {
+    const accessKey = process.env.REACT_APP_TUGO_KEY
     return fetch("https://api.tugo.com/v1/travelsafe/countries", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Auth-API-Key": "cx38gacyh7yumqfvvnqe7n2g"
+        "X-Auth-API-Key": accessKey 
       }
     })
     .then(resp => resp.json())
