@@ -8,7 +8,8 @@ import { CardColumns } from 'react-bootstrap';
 
 const MyDestinations = props => {
   const destinationCards = props.destinations.length > 0 ? 
-    props.destinations.map(d => (
+    props.destinations.map(d => 
+      (
       <DestinationCard destination={d}/>
     )) 
     : null
