@@ -16,9 +16,9 @@ const MyDestinations = props => {
 
   return (
     <>
-      <h1 className="destinations-title">My Destinations</h1>
+      <h1 className='destinations-title'>My Destinations</h1>
       <br/><br/>
-      <CardColumns>
+      <CardColumns className='card-column'>
         {destinationCards}
       </CardColumns>
     </>
