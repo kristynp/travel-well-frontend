@@ -38,7 +38,6 @@ export const updateDestinationSuccess = destination => {
 }
 
 export const setDestinationImageData = (imageData, id) => {
-  console.log('in setDestinationImageData - imageData -', imageData)
   return {
     type: "SET_DESTINATION_IMAGE_DATA",
     destinationId: id,
@@ -57,7 +56,6 @@ export const createDestinationImage = (imageData, id) => {
       description: imageData.description,
       alt_description: imageData.alt_description
     }
-    console.log('in createDestinationImage - sendData', sendData)
     return fetch("http://localhost:3000/api/v1/images", {
       credentials: "include",
       method: "POST",
@@ -66,7 +64,12 @@ export const createDestinationImage = (imageData, id) => {
       },
       body: JSON.stringify(sendData)
     })
-    .then(() => setDestinationImageData(imageData, id))
+    .then(() => {
+      const saveData = {
+        attributes: sendData
+      }
+      dispatch(setDestinationImageData(saveData, id))
+    })
     .catch(console.log)
   }
 }
@@ -85,7 +88,6 @@ export const getDestinationImages = (destinationCountry, id) => {
     .then(resp => resp.json())
     .then(resp => {
       resp.results.forEach(imageObject => dispatch(createDestinationImage(imageObject, id)))
-      setDestinationImageData(resp.results, id)
       // resp.results is an array of image objects
     })
     .catch(console.log)
