@@ -64,12 +64,6 @@ export const createDestinationImage = (imageData, id) => {
       },
       body: JSON.stringify(sendData)
     })
-    .then(() => {
-      const saveData = {
-        attributes: sendData
-      }
-      dispatch(setDestinationImageData(saveData, id))
-    })
     .catch(console.log)
   }
 }
@@ -119,6 +113,7 @@ export const createDestination = (destinationData, history) => {
         // collect images into object with resp.data
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
+        dispatch(getMyDestinations())
       }
       history.push(`/destinations/${resp.data.id}`)
       return resp.data
