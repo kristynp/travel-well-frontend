@@ -10,6 +10,10 @@ export default (state = [], action) => {
       return state.map(destination => destination.id === action.destination.id ? action.destination : destination)
     case "DELETE_DESTINATION":
       return state.filter(destination => destination.id === action.destinationId ? false : true)
+    case "SET_DESTINATION_IMAGE_DATA":
+      
+      //[{destinationId: action.destinationId, images: action.imageData}]
+      return state
     default:
       return state
   }
