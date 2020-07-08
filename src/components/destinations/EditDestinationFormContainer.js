@@ -3,6 +3,7 @@ import React from 'react';
 import { updateDestination, deleteDestination } from '../../actions/destinations/myDestinations';
 import { setFormDataForEdit, resetDestinationForm } from '../../actions/destinations/destinationForm';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import DestinationForm from './DestinationForm';
 
 // src/components/destinations/EditDestinationFormContainer.js
@@ -41,7 +42,7 @@ class EditDestinationFormContainer extends React.Component {
     return( 
       <div>
         <DestinationForm editMode handleSubmit={this.handleSubmit} />
-        <button onClick={()=>{deleteDestination(destinationId, history)}}>Delete this destination</button>
+        <Link onClick={()=>{deleteDestination(destinationId, history)}}>Delete this destination</Link>
       </div>
     )} 
 }
