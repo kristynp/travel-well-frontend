@@ -21,8 +21,6 @@ export const clearCurrentUser = () => {
 // asynchronous action creators
 
 export const signup = (credentials, history) => {
-  console.log('history: ', history)
-
   return dispatch => {
     const userInfo = {user: credentials}
     return fetch("http://localhost:3000/api/v1/signup", {
