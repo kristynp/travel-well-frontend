@@ -38,7 +38,7 @@ export const updateDestinationSuccess = destination => {
 }
 
 export const setDestinationImageData = (imageData, id) => {
-  console.log(imageData)
+  console.log('in setDestinationImageData - imageData -', imageData)
   return {
     type: "SET_DESTINATION_IMAGE_DATA",
     destinationId: id,
@@ -73,7 +73,6 @@ export const createDestinationImage = (imageData, id) => {
 
 export const getDestinationImages = (destinationCountry, id) => {
   const countrySlug = destinationCountry.replace(/\s/g , "-").toLowerCase()
-  console.log('countrySlug', countrySlug)
   return dispatch => {
     const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
     return fetch(`https://api.unsplash.com/search/photos?page=6&query=${countrySlug}`, {
@@ -85,7 +84,6 @@ export const getDestinationImages = (destinationCountry, id) => {
     })
     .then(resp => resp.json())
     .then(resp => {
-      console.log('resp', resp)
       resp.results.forEach(imageObject => dispatch(createDestinationImage(imageObject, id)))
       setDestinationImageData(resp.results, id)
       // resp.results is an array of image objects
@@ -117,7 +115,6 @@ export const createDestination = (destinationData, history) => {
       } else {
         dispatch(getDestinationImages(resp.data.attributes.country, resp.data.id)) //retrieve and create images
         // collect images into object with resp.data
-        console.log('resp.data just before adding destination to state', resp.data)
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
       }

@@ -11,12 +11,12 @@ export const setGlobalImageData = imageData => {
 
 export const getGlobalImageData = () => {
   return dispatch => {
-    const access_key = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
+    const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY
     return fetch("https://api.unsplash.com/search/photos?page=10&query=travel", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Client-ID ${access_key}`
+        "Authorization": `Client-ID ${accessKey}`
       }
     })
     .then(resp => resp.json())

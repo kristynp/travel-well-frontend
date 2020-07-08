@@ -24,7 +24,6 @@ class EditDestinationFormContainer extends React.Component {
 
   handleSubmit = (formData, userId) => {
     const { updateDestination, destination, history } = this.props
-    console.log('in handleSubmit in Edit Container')
     updateDestination({
       ...formData,
       destinationId: destination.id,

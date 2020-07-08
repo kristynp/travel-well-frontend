@@ -16,7 +16,7 @@ export const getCountryCodes = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Auth-API-Key": accessKey 
+        "X-Auth-API-Key": `${accessKey}` 
       }
     })
     .then(resp => resp.json())
