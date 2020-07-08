@@ -6,7 +6,8 @@ import { getCountryAdvisories } from '../../actions/advisories/advisories';
 class DestinationDetails extends React.Component {
 
   componentDidMount() {
-    getCountryAdvisories(this.props.destination.country)
+    console.log('this.props',this.props)
+    getCountryAdvisories(this.props.destination.attributes.country, this.props.countryCodeData)
   }
 
   render () {
