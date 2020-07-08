@@ -42,7 +42,7 @@ class App extends React.Component {
           <Route exact path='/destinations/new' component={NewDestinationFormContainer}/>
           <Route exact path='/destinations/:id' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
-            return <DestinationDetails destination={destination} {...props}/>
+            return <DestinationDetails destination={destination} {...this.props}/>
             }
           }/>
 
@@ -63,7 +63,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
-    destinations: state.myDestinations
+    destinations: state.myDestinations,
+    countryCodeData: state.countryCodeData
   })
 }
 
