@@ -1,6 +1,8 @@
 // class component
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Advisories from './Advisories';
 
 class DestinationDetails extends React.Component {
 
@@ -10,16 +12,24 @@ class DestinationDetails extends React.Component {
 
   render () {
     const destination = this.props.destination
+    const advisories = this.props.advisories === {} ? null : <Advisories advisories={this.props.advisories}/>
     const details =     
     destination ?
       <div>
         <h2 className="destinations-title">{destination.attributes.name}</h2>
         <p>Notes: {destination.attributes.notes}</p>
         <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
+        {advisories}
       </div> : 
     null 
     return details
   }
 }
 
-export default DestinationDetails;
+const mapStateToProps = state => {
+  return {
+    advisories: state.advisories
+  }
+}
+
+export default connect(mapStateToProps)(DestinationDetails);
