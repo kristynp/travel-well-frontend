@@ -5,24 +5,26 @@ import { Card } from 'react-bootstrap';
 
 const Advisories = ({ advisories }) => {
 
-  const a = advisories === undefined ? null : advisories 
-  console.log('a.health.diseasesAndVaccinesInfo.Vaccines', a.health.diseasesAndVaccinesInfo.Vaccines)
-  
+  const vaccineRecs = advisories !== undefined ?
+    advisories.health.diseasesAndVaccinesInfo.Vaccines.map (v => (
+      <Card className='advisory-card' style={{ width: '45rem' }} >
+      <Card.Header>
+        { v.category }
+      </Card.Header>
+      <Card.Body>              
+        <ul>
+          <li>{ v.description }</li>
+        </ul>
+      </Card.Body>
+    </Card>
+    ))
+  : null
+
+
   return (
     <div>
       <h3>Current Advisories</h3>
-        <Card className='advisory-card' style={{ width: '30rem' }} >
-          <Card.Header>
-            Diseases and Vaccines Info
-          </Card.Header>
-{         <Card.Body>              
-            <ul>
-              <li></li>
-                <p></p>
-              <li>item2</li>
-            </ul>
-          </Card.Body>}
-        </Card>
+      { vaccineRecs }
     </div>
   )
 }
