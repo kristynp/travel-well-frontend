@@ -16,7 +16,7 @@ class DestinationDetails extends React.Component {
     const details =     
     destination ?
       <div>
-        <h2 className="destinations-title">{destination.attributes.name}</h2>
+        <h1 className="destinations-title">{destination.attributes.name} - {destination.attributes.country}</h1>
         <p>Notes: {destination.attributes.notes}</p>
         <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
         {advisories}

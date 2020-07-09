@@ -6,6 +6,10 @@
   margin-left: 8em;
 }
 
+.advisories-container {
+  padding-right: 2em !important;
+}
+
 .jumbotron {
   display: flex;
   flex-wrap: wrap;
