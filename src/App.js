@@ -3,9 +3,9 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/user/currentUser';
-import { setCountryCodes } from './actions/advisories/countryCodeData';
+import { getDestinationAdvisories } from './actions/advisories/advisories';
+
 import { getGlobalImageData } from './actions/images/images';
-import { getCountryCodes } from './actions/advisories/countryCodeData';
 import NavBar from './components/NavBar';
 import Login from './components/user/Login';
 import Signup from './components/user/Signup';
@@ -68,4 +68,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, getGlobalImageData, getCountryCodes })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, getGlobalImageData, getDestinationAdvisories })(App));
