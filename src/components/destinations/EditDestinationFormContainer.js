@@ -38,6 +38,7 @@ class EditDestinationFormContainer extends React.Component {
     //editMode gives opportunity to have conditional value depending on if it's new or edit in form
     return( 
       <div>
+        <h1>Edit This Destination</h1>
         <DestinationForm editMode handleSubmit={this.handleSubmit} />
         <Link onClick={()=>{deleteDestination(destinationId, history)}} to='/destinations'>Delete this destination</Link>
       </div>

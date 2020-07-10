@@ -10,7 +10,12 @@ const NewDestinationFormContainer = ({ history, createDestination }) => {
     }, history);
   }
 
-  return <DestinationForm history={history} handleSubmit={handleSubmit} />
+  return (
+    <>
+    <h1 className='center'>Where Would You Like To Go?</h1><br/>
+    <DestinationForm history={history} handleSubmit={handleSubmit} />
+    </>
+  )
 }
 
 export default connect(null, { createDestination })(NewDestinationFormContainer);
