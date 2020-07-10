@@ -1,6 +1,7 @@
 import React from 'react';
 import { updateDestinationForm } from '../../actions/destinations/destinationForm';
 import { connect } from 'react-redux';
+import { Form, Button } from 'react-bootstrap';
 
 const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMode }) => {
   const { name, notes, country } = formData 
@@ -9,35 +10,41 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
     const { name, value } = event.target
     updateDestinationForm(name, value)
   }
-
+  
   return (
-    <form onSubmit={event => {
+    <Form onSubmit={event => {
       event.preventDefault();
       handleSubmit(formData)
       }}>
-      <input 
-        name="name"
-        onChange={handleChange}
-        placeholder={"name"}
-        value={name}
-      /><br/><br/>
-      <input 
+
+    <Form.Group controlId="name">
+      <Form.Label>Destination Name</Form.Label>
+      <Form.Control 
+      type="text"
+      name="name"
+      onChange={handleChange}
+      />
+    </Form.Group>
+    <Form.Group controlId="country">
+      <Form.Label>Country</Form.Label>
+      <Form.Control
+        type="text"
         name="country"
         onChange={handleChange}
-        placeholder={"country"}
-        value={country}
-      /><br/><br/>
-      <textarea 
+      />
+    </Form.Group>
+    <Form.Group controlId="notes">
+      <Form.Label>Notes</Form.Label>
+      <Form.Control
+        type="textarea"
         name="notes"
         onChange={handleChange}
-        placeholder={"notes"}
-        value={notes}
-      /> 
-      <input 
-        type="submit" 
-        value={ editMode ? "Update Destination" : "Add Destination"}
-      /> 
-    </form>
+      />
+    </Form.Group>
+    <Button variant="dark" type="submit">
+      { editMode ? "Update Destination" : "Add Destination" }
+    </Button>
+  </Form>
   )}
 
 const mapStateToProps = state => {
