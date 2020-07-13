@@ -6,6 +6,7 @@ import signupForm from './reducers/user/signupForm';
 import globalImages from './reducers/images/globalImages';
 import destinationForm from './reducers/destinations/destinationForm';
 import countryCodeData from './reducers/advisories/countryCodeData';
+import attractions from './reducers/attractions/attractions';
 import advisories from './reducers/advisories/advisories';
 import thunk from 'redux-thunk';
 
@@ -18,7 +19,8 @@ const reducer = combineReducers({
   destinationForm,
   globalImages, 
   countryCodeData,
-  advisories
+  advisories,
+  attractions
 })
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
 
