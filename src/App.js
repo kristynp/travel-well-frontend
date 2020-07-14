@@ -4,7 +4,6 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/user/currentUser';
 import { getDestinationAdvisories } from './actions/advisories/advisories';
-
 import { getGlobalImageData } from './actions/images/images';
 import NavBar from './components/NavBar';
 import Login from './components/user/Login';
