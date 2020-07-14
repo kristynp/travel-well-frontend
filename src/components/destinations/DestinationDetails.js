@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Advisories from './Advisories';
+import Advisories from './AdvisoriesContainer';
 
 class DestinationDetails extends React.Component {
 
