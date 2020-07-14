@@ -10,6 +10,15 @@
   padding-right: 2em !important;
 }
 
+.padding {
+  padding-left: 3em;
+  padding-right: 2em;
+}
+
+.center-content {
+  align-content: center !important;
+}
+
 .center {
   text-align: center;
 }

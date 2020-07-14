@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => (
-  <div>
-    <h2>Welcome, please <Link to='/signup'>Sign Up</Link> or <Link to='/login'>Log In</Link></h2>
+  <div className='center'>
+    <h2>Welcome to TravelWell, please <Link to='/signup'>Sign Up</Link> or <Link to='/login'>Log In</Link></h2>
   </div>
 );
 
