@@ -23,6 +23,7 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
       type="text"
       name="name"
       onChange={handleChange}
+      value={name}
       />
     </Form.Group>
     <Form.Group controlId="country">
@@ -31,6 +32,7 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
         type="text"
         name="country"
         onChange={handleChange}
+        value={country}
       />
     </Form.Group>
     <Form.Group controlId="notes">
@@ -39,6 +41,7 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
         type="textarea"
         name="notes"
         onChange={handleChange}
+        value={notes}
       />
     </Form.Group>
     <Button variant="dark" type="submit">
