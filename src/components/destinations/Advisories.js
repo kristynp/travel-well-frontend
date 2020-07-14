@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 const Advisories = ({ advisories }) => {
   const vaccineRecs = advisories !== undefined ?
     advisories.health.diseasesAndVaccinesInfo.Vaccines.map (v => (
-      <Card className='advisory-card float-right ' style={{ width: '45rem' }} >
+      <Card className='advisory-card' style={{ width: '100%rem' }} >
       <Card.Header>
         { v.category }
       </Card.Header>
@@ -18,7 +18,7 @@ const Advisories = ({ advisories }) => {
   : null
 
   const generalAdvisory = advisories.advisoryText !== undefined ? (
-    <Card className='advisory-card float-right ' style={{ width: '45rem' }} >
+    <Card className='advisory-card' style={{ width: '100%' }} >
     <Card.Header>General Advisory</Card.Header>
     <Card.Body>              
       <ul>
@@ -31,8 +31,8 @@ const Advisories = ({ advisories }) => {
 
 
   return (
-    <div className='advisories-container float-right'>
-      <Card className='advisory-card float-right ' style={{ width: '45rem' }} >
+    <div className='advisories-container'>
+      <Card className='advisory-card' style={{ width: '100%' }} >
         <Card.Header className='text-center'><h2>Current Advisories</h2></Card.Header>
     </Card>
       { generalAdvisory }

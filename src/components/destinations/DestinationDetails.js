@@ -15,7 +15,7 @@ class DestinationDetails extends React.Component {
     const advisories = this.props.advisories === {} ? null : <Advisories advisories={this.props.advisories}/>
     const details =     
     destination ?
-      <div>
+      <div className='center-content padding'>
         <h1 className="destinations-title">{destination.attributes.name} - {destination.attributes.country}</h1>
         <p>Notes: {destination.attributes.notes}</p>
         <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
