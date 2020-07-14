@@ -15,7 +15,7 @@ class EditDestinationFormContainer extends React.Component {
 
   // updates the form if the user gets to edit page directly from browser url
   componentDidUpdate(prevProps) {
-    this.props.destination && !prevProps.trip && this.props.setFormDataForEdit(this.props.destination)
+    this.props.destination && !prevProps.destination && this.props.setFormDataForEdit(this.props.destination)
   }
 
   // clears form if user moves from edit page to new destination page
@@ -38,7 +38,7 @@ class EditDestinationFormContainer extends React.Component {
     //editMode gives opportunity to have conditional value depending on if it's new or edit in form
     return( 
       <div>
-        <h1>Edit This Destination</h1>
+        <h1>Edit {destination.name} Destination</h1>
         <DestinationForm editMode handleSubmit={this.handleSubmit} />
         <Link onClick={()=>{deleteDestination(destinationId, history)}} to='/destinations'>Delete this destination</Link>
       </div>
