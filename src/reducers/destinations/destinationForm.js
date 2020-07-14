@@ -1,12 +1,7 @@
 const initialState = {
   name: "",
   country: "",
-  notes: "",
-  cdc_info: {
-    vaccinations: "",
-    advisories: "",
-    recommendations: ""
-  }
+  notes: ""
 }
 
 export default (state=initialState, action) => {

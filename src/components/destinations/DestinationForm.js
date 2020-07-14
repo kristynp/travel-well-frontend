@@ -1,7 +1,7 @@
 import React from 'react';
 import { updateDestinationForm } from '../../actions/destinations/destinationForm';
 import { connect } from 'react-redux';
-import { Form, Button, FormControl } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMode }) => {
   const { name, notes, country } = formData 
@@ -29,7 +29,6 @@ const DestinationForm = ({ formData, updateDestinationForm, handleSubmit, editMo
     <Form.Group controlId="country" >
       <Form.Label>Country</Form.Label>
       <Form.Control
-        disabled
         type="text"
         name="country"
         onChange={handleChange}
