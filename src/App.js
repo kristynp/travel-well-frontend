@@ -48,8 +48,12 @@ class App extends React.Component {
 
           <Route exact path='/destinations/:id/edit' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
-            return <EditDestinationFormContainer destination={destination} {...this.props}/>
-            }
+            return (
+            <div>
+              <EditDestinationFormContainer destination={destination} {...this.props}/>
+              <DestinationDetails destination={destination} {...this.props}/>
+            </div>
+            )}
           }/>
           
         </Switch>
