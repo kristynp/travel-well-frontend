@@ -14,6 +14,7 @@ export const resetDestinationForm = () => {
 }
 
 export const setFormDataForEdit = destination => {
+  console.log('destination', destination)
   const destinationFormData = {
     name: destination.attributes.name,
     country: destination.attributes.country,
