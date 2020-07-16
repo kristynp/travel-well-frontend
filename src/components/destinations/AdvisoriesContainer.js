@@ -4,9 +4,7 @@ import Advisory from './Advisory';
 import GeneralAdvisory from './GeneralAdvisory';
 
 const AdvisoriesContainer = ({ advisories }) => {
-  console.log('advisories', advisories)
-
-  const vaccineRecs = advisories.keys ?
+  const vaccineRecs = advisories.health ?
     advisories.health.diseasesAndVaccinesInfo.Vaccines.map (v => (
       <Advisory key={v.code} advisory={v}/>
     ))

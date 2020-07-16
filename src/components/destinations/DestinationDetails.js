@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Advisories from './AdvisoriesContainer';
+import AdvisoriesContainer from './AdvisoriesContainer';
 
 class DestinationDetails extends React.Component {
 
@@ -10,18 +10,29 @@ class DestinationDetails extends React.Component {
     this.props.getDestinationAdvisories(this.props.destination.attributes.country, this.props.countryCodeData)
   }
 
+  advisoryInfo(advisories) {
+    if (advisories === {}) {
+      return null;
+    }
+    if (advisories === undefined) {
+      return null;
+    }
+    return <AdvisoriesContainer advisories={this.props.advisories}/>;
+  }
+
   render () {
     const destination = this.props.destination
-    const advisories = this.props.advisories === {} ? null : <Advisories advisories={this.props.advisories}/>
+    const validAdvisories = this.props.advisories !== undefined && this.props.advisories !== {}
+
     const details =     
-    destination ?
-      <div className='center-content padding'>
-        <h1 className="destinations-title">{destination.attributes.name} - {destination.attributes.country}</h1>
-        <p>Notes: {destination.attributes.notes}</p>
-        <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
-        {advisories}
-      </div> : 
-    null 
+      { destination } ?
+        <div className='center-content padding'>
+          <h1 className="destinations-title">{destination.attributes.name} - {destination.attributes.country}</h1>
+          <p>Notes: {destination.attributes.notes}</p>
+          <Link to={`/destinations/${destination.id}/edit`} >Edit Destination</Link>
+          { this.advisoryInfo(this.props.advisories) }
+        </div> : 
+      null 
     return details
   }
 }
