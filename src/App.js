@@ -44,7 +44,6 @@ class App extends React.Component {
             return <DestinationDetails destination={destination} {...this.props}/>
             }
           }/>
-
           <Route exact path='/destinations/:id/edit' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
             return (
@@ -54,12 +53,10 @@ class App extends React.Component {
             </div>
             )}
           }/>
-          
         </Switch>
       </div>
     );
   }
-
   
 }
 
