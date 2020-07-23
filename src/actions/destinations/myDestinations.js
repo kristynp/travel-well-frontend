@@ -104,7 +104,11 @@ export const createDestination = (destinationData, history) => {
       },
       body: JSON.stringify(sendData)
     })
-    .then(resp => resp.json())
+    .then(resp => {
+      //if (!res.ok) { throw new Error(resp) } // render json: {}, status: 301
+    
+      return resp.json()
+    })
     .then(resp => {
       if (resp.error) {
         alert(resp.error)
@@ -118,7 +122,7 @@ export const createDestination = (destinationData, history) => {
       history.push(`/destinations/${resp.data.id}`)
       return resp.data
     })
-    .catch(console.log)
+    .catch((resp) => console.log)
   }
 }
 
