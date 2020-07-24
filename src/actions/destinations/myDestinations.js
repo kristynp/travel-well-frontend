@@ -105,24 +105,26 @@ export const createDestination = (destinationData, history) => {
       body: JSON.stringify(sendData)
     })
     .then(resp => {
-      //if (!res.ok) { throw new Error(resp) } // render json: {}, status: 301
-    
+      if (!resp.ok) { 
+        return resp 
+      }
       return resp.json()
     })
     .then(resp => {
-      if (resp.error) {
-        alert(resp.error)
+      if (resp.errors) {
+        history.push('/destinations/new')
+        return resp
       } else {
         dispatch(getDestinationImages(resp.data.attributes.country, resp.data.id)) //retrieve and create images
         // collect images into object with resp.data
         dispatch(addDestination(resp.data))
         dispatch(resetDestinationForm())
         dispatch(getMyDestinations())
+        history.push(`/destinations/${resp.data.id}`)
       }
-      history.push(`/destinations/${resp.data.id}`)
       return resp.data
     })
-    .catch((resp) => console.log)
+    .catch((resp) => console.log(resp))
   }
 }
 

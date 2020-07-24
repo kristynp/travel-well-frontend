@@ -41,7 +41,7 @@ class App extends React.Component {
           <Route exact path='/destinations/new' component={NewDestinationFormContainer}/>
           <Route exact path='/destinations/:id' render={props => {
             const destination = destinations.find(d => d.id === props.match.params.id)
-            return <DestinationDetails destination={destination} {...this.props}/>
+              return <DestinationDetails destination={destination} {...this.props}/>
             }
           }/>
           <Route exact path='/destinations/:id/edit' render={props => {
