@@ -22,7 +22,7 @@ class DestinationDetails extends React.Component {
 
   render () {
     const destination = this.props.destination
-    const validAdvisories = this.props.advisories !== undefined && this.props.advisories !== {}
+    // const validAdvisories = this.props.advisories !== undefined && this.props.advisories !== {}
 
     const details =     
       { destination } ?
