@@ -9,10 +9,6 @@ class DestinationCard extends React.Component {
   }
 
   render() {
-    const handleVote = () => {
-      console.log('in handle vote, destination', this.props.destination)
-      this.props.destination.votes = this.props.destination.votes + 1
-    }
 
     let cardImage = this.props.destination.attributes.images[0] ? <Card.Img variant="top" src={this.props.destination.attributes.images[0].url} ></Card.Img> : null
 
